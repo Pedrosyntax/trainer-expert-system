@@ -135,9 +135,13 @@ RULES = [
      "then": ("price", "£60-£120 - most mainstream models sit in this range"),
      "because": "this covers most current-season trainers"},
 
-    {"id": "B3", "if": {"budget": "high"},
+    {"id": "B3", "if": {"activity": ["running", "gym", "walking"], "budget": "high"},
      "then": ("price", "£120+ - premium foams and newest models"),
      "because": "premium models use lighter, more responsive materials"},
+     
+    {"id": "B4", "if": {"activity": "casual", "budget": "high"},
+     "then": ("price", "£120+ - premium materials, collabs and limited releases"),
+     "because": "for lifestyle shoes the extra money goes on materials and exclusivity, not performance"},
 ]
 
 
