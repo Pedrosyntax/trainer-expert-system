@@ -90,9 +90,13 @@ RULES = [
      "then": ("recommendation", "trail running shoe with a wide, stable base"),
      "because": "trail needs grip, and the wider base gives the support needed"},
 
-    {"id": "R4", "if": {"activity": "running", "surface": "trail", "support": "no"},
+    {"id": "R4", "if": {"activity": "running", "surface": "trail", "support": "no", "cushion": "standard"},
      "then": ("recommendation", "neutral trail running shoe"),
      "because": "trail needs grip and protection, no extra support needed"},
+
+    {"id": "R12", "if": {"activity": "running", "surface": "trail", "support": "no", "cushion": "high"},
+     "then": ("recommendation", "cushioned neutral trail running shoe"),
+     "because": "trail needs grip, and extra cushioning protects on long or rough runs"},
 
     {"id": "R5", "if": {"activity": "running", "surface": "track"},
      "then": ("recommendation", "track spikes or lightweight racing flats"),
