@@ -18,7 +18,7 @@ QUESTIONS = {
     },
     "pronation": {
         "text": "Where do your old trainers wear down the most?",
-        "options": ["inside", "even", "outside"],
+        "options": ["inside", "even", "outside", "not sure / never had trainers"],
     },
     "mileage": {
         "text": "Roughly how far do you run/walk a week?",
@@ -31,7 +31,7 @@ QUESTIONS = {
 }
 
 # inside wear = overpronation, outside = underpronation
-PRONATION_MAP = {"inside": "over", "even": "neutral", "outside": "under"}
+PRONATION_MAP = {"inside": "over", "even": "neutral", "outside": "under", "not": "neutral"}
 
 
 # knowledge base
