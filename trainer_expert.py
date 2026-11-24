@@ -37,33 +37,42 @@ PRONATION_MAP = {"inside": "over", "even": "neutral", "outside": "under", "not":
 # knowledge base
 # if a condition is a list it means any of those values
 RULES = [
+    #only chec feet for road runners and walkers not gym or casual
+    {"id": "F1", "if": {"activity": "running", "surface": ["road","trail"]},
+     "then": ("foot_check", "yes"),
+     "because": "road and trail runners need the right support and cushioning"},
+
+    {"id": "F2", "if": {"activity": "walking"},
+     "then": ("foot_check", "yes"),
+     "because": "walkers are on their feet a lot so foot type matters"},
+     
     # support and cushioning rules
-    {"id": "S1", "if": {"activity": ["running", "walking"], "arch": "flat"},
+    {"id": "S1", "if": {"foot_check": "yes",  "arch": "flat"},
      "then": ("support", "yes"),
      "because": "flat arches tend to collapse inwards, so extra support helps"},
 
-    {"id": "S2", "if": {"activity": ["running", "walking"], "pronation": "over"},
+    {"id": "S2", "if": {"foot_check": "yes",  "pronation": "over"},
      "then": ("support", "yes"),
      "because": "overpronation (inside wear) needs a stability shoe"},
 
-    {"id": "S3", "if": {"activity": ["running", "walking"], "arch": ["normal", "high"],
+    {"id": "S3", "if": {"foot_check": "yes",  "arch": ["normal", "high"],
                         "pronation": ["neutral", "under"]},
      "then": ("support", "no"),
      "because": "normal/high arch with no overpronation means a neutral shoe is fine"},
 
-    {"id": "C1", "if": {"activity": ["running", "walking"], "arch": "high"},
+    {"id": "C1", "if": {"foot_check": "yes",  "arch": "high"},
      "then": ("cushion", "high"),
      "because": "high arches absorb less shock, so more cushioning is needed"},
 
-    {"id": "C2", "if": {"activity": ["running", "walking"], "pronation": "under"},
+    {"id": "C2", "if": {"foot_check": "yes",  "pronation": "under"},
      "then": ("cushion", "high"),
      "because": "underpronation puts more impact on the outside of the foot"},
 
-    {"id": "C3", "if": {"activity": ["running", "walking"], "mileage": "high"},
+    {"id": "C3", "if": {"foot_check": "yes",  "mileage": "high"},
      "then": ("cushion", "high"),
      "because": "high weekly mileage needs a more protective, cushioned shoe"},
 
-    {"id": "C4", "if": {"activity": ["running", "walking"], "arch": ["flat", "normal"],
+    {"id": "C4", "if": {"foot_check": "yes",  "arch": ["flat", "normal"],
                         "pronation": ["over", "neutral"], "mileage": ["low", "medium"]},
      "then": ("cushion", "standard"),
      "because": "no high-impact factors, so standard cushioning is enough"},
